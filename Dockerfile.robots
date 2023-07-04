@@ -1,0 +1,13 @@
+FROM python:3
+
+# Membuat folder di container dan sebagai direktori aktif di container
+# Apapun yang dilaukan di bawahnya pastdi akan masuk ke /app
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Kita menyalin file atau folder dari local komputer ke container (.) => /app
+COPY . .
+
+CMD [ "robot", "robots" ]

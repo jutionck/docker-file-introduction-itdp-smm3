@@ -1,0 +1,8 @@
+# BaseImage
+FROM alpine:3
+
+RUN mkdir app
+
+ADD docs/*.txt app/
+
+CMD [ "cat", "app/welcome.txt" ]
